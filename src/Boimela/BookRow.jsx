@@ -1,14 +1,16 @@
-import React from 'react'
-import BookDetails from './BookDetails'
-import FeatureBook from './FeatureBook'
+import React from "react";
+import BookDetails from "./BookDetails";
+import FeatureBook from "./FeatureBook";
 
-const BookRow = () => {
+const BookRow = ({ book }) => {
   return (
     <>
-      <BookDetails />
+      <BookDetails title={book.title} author={book.author} />
       <FeatureBook />
     </>
-  )
-}
+  );
+};
 
-export default BookRow
+BookRow.protoTypes;
+
+export default BookRow;

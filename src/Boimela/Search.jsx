@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 
 const Search = () => {
   return (
-    <div>Search</div>
-  )
-}
+    <input
+      type="text"
+      name=""
+      id=""
+      placeholder="Search Books..."
+      className="mb-4 border rounded-md p-1 w-full"
+    />
+  );
+};
 
-export default Search
+export default Search;

@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import { Star } from "lucide-react";
 
 const FeatureBook = () => {
-  return (
-    <div>FeatureBook</div>
-  )
-}
+  return <Star />;
+};
 
-export default FeatureBook
+export default FeatureBook;
