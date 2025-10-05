@@ -1,13 +1,17 @@
 import BookRow from "./BookRow";
-const BookList = ({ searchTerm, book }) => {
-  // console.log("searchTerm", searchTerm);
+const BookList = ({ searchTerm = "", books = [], onFeatureBooks }) => {
   const rows = [];
-  book.forEach((obj) => {
-    if (obj.title.toLowerCase().indexOf(searchTerm.toLowerCase()) === -1) {
+  books.forEach((obj) => {
+    // console.log("title", obj.title);
+    if (obj.title?.toLowerCase().indexOf(searchTerm.toLowerCase()) === -1) {
       return;
     }
-    rows.push(<BookRow key={obj.id} book={obj} />);
+
+    rows.push(
+      <BookRow key={obj.id} book={obj} onFeatureBooks={onFeatureBooks} />
+    );
   });
+
   return <div className="space-y-4">{rows}</div>;
 };
 

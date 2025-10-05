@@ -4,7 +4,7 @@ import BookList from "./BookList";
 import { useState } from "react";
 
 const BoiMela = () => {
-  const book = [
+  const bookArr = [
     {
       id: 1,
       title: "Eloquent JavaScript, Third Edition",
@@ -14,7 +14,7 @@ const BoiMela = () => {
       publisher: "No Starch Press",
       pages: 472,
       website: "http://eloquentjavascript.net/",
-      isFeature: true,
+      isFeature: false,
     },
     {
       id: 2,
@@ -47,7 +47,7 @@ const BoiMela = () => {
       publisher: "O'Reilly Media",
       pages: 460,
       website: "http://speakingjs.com/",
-      isFeature: true,
+      isFeature: false,
     },
     {
       id: 5,
@@ -59,7 +59,7 @@ const BoiMela = () => {
       pages: 254,
       website:
         "http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/",
-      isFeature: true,
+      isFeature: false,
     },
     {
       id: 6,
@@ -71,7 +71,7 @@ const BoiMela = () => {
       pages: 143,
       website:
         "https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started",
-      isFeature: true,
+      isFeature: false,
     },
     {
       id: 7,
@@ -97,12 +97,33 @@ const BoiMela = () => {
     },
   ];
 
+  const [books, setBooks] = useState(bookArr);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const toggleFeature = (id) => {
+    setBooks((prevBooks) => {
+      prevBooks.map((obj) => {
+        obj.id === id ? { ...obj, isFeature: !obj.isFeature } : obj;
+      });
+    });
+    // setBooks(
+    //   books.map((obj) => {
+    //     console.log("obj", obj);
+    //     obj.id === id ? { ...obj, isFeature: !obj.isFeature } : obj;
+    //   })
+    // );
+  };
+
+  // console.log("book", book);
   return (
     <div className="mx-4 p-2">
       <Header />
       <Search searchTerm={searchTerm} onSearchBook={setSearchTerm} />
-      <BookList searchTerm={searchTerm} book={book} />
+      <BookList
+        searchTerm={searchTerm}
+        books={books}
+        onFeatureBooks={toggleFeature}
+      />
     </div>
   );
 };
