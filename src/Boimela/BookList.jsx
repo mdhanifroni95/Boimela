@@ -8,7 +8,7 @@ const BookList = ({ searchTerm = "", books = [], onFeatureBooks }) => {
     }
 
     rows.push(
-      <BookRow key={obj.id} book={obj} onFeatureBooks={onFeatureBooks} />
+      <BookRow key={obj.id} book={obj} onFeatureBook={onFeatureBooks} />
     );
   });
 

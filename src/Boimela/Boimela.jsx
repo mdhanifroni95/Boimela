@@ -101,20 +101,19 @@ const BoiMela = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const toggleFeature = (id) => {
-    setBooks((prevBooks) => {
-      prevBooks.map((obj) => {
-        obj.id === id ? { ...obj, isFeature: !obj.isFeature } : obj;
-      });
-    });
-    // setBooks(
-    //   books.map((obj) => {
-    //     console.log("obj", obj);
-    //     obj.id === id ? { ...obj, isFeature: !obj.isFeature } : obj;
-    //   })
-    // );
+    setBooks((prevBooks) =>
+      prevBooks.map((obj) =>
+        obj.id === id ? { ...obj, isFeature: !obj.isFeature } : obj
+      )
+    );
+    // setBooks((prevBooks) => {
+    //   return prevBooks.map((obj) => {
+    //     return obj.id === id ? { ...obj, isFeature: !obj.isFeature } : obj;
+    //   });
+    // });
   };
 
-  // console.log("book", book);
+  console.log("book", books);
   return (
     <div className="mx-4 p-2">
       <Header />
