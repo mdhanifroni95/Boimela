@@ -113,7 +113,7 @@ const BoiMela = () => {
     // });
   };
 
-  console.log("book", books);
+  // console.log("book", books);
   return (
     <div className="mx-4 p-2">
       <Header />
